@@ -1,18 +1,17 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <my-button @click="$router.push('/about')">About</my-button>
+  <post-form></post-form>
+  <post-list></post-list>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import PostForm from "@/components/PostForm.vue";
+import PostList from "@/components/PostList.vue";
 
 export default {
-  name: 'HomeView',
   components: {
-    HelloWorld
-  }
-}
+    PostList,
+    PostForm,
+  },
+};
 </script>

@@ -1,5 +1,10 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <div>hello</div>
+  <my-button @click="$router.push('/')">About</my-button>
 </template>
+
+<script>
+export default {};
+</script>
+
+<style scoped></style>
