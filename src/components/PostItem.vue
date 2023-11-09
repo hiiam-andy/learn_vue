@@ -1,6 +1,7 @@
 <template>
   <div class="post">
     <div>
+      <strong> {{ post.id }}</strong>
       <div>
         Название <span>{{ post.title }}</span>
       </div>
@@ -8,9 +9,14 @@
         Описание <span>{{ post.body }}</span>
       </div>
     </div>
-    <my-button class="btn" @click="$emit('removePost', post)"
-      >удалить</my-button
-    >
+    <div class="buttons">
+      <my-button class="btn" @click="$router.push(`/posts/${post.id}`)">
+        Открыть
+      </my-button>
+      <my-button class="btn" @click="$emit('removePost', post)">
+        удалить
+      </my-button>
+    </div>
   </div>
 </template>
 
@@ -32,7 +38,10 @@ export default {
   padding: 5px;
   margin-bottom: 15px;
 }
-.btn {
+.buttons {
   align-self: flex-end;
+}
+.btn {
+  margin-left: 5px;
 }
 </style>

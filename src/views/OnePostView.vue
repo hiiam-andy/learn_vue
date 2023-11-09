@@ -1,5 +1,5 @@
 <template>
-  <div>Пытаюсь разобраться с Vue 3</div>
+  <div>страница с id = {{ $route.params.id }}</div>
 </template>
 
 <script>

@@ -1,8 +1,4 @@
-<template>
-  <my-button @click="$router.push('/about')">About</my-button>
-  <post-form></post-form>
-  <post-list></post-list>
-</template>
+<template>hi</template>
 
 <script>
 import PostForm from "@/components/PostForm.vue";
