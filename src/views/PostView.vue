@@ -1,14 +1,16 @@
 <template>
   <div class="container">
+    <!-- подписка на событие из дочернего, из которого получили данные -->
     <my-dialog v-model:show="dialogVisible">
-      <!-- подписка на событие из дочернего, из которого получили данные -->
       <post-form @create="createPost"></post-form>
     </my-dialog>
+
     <div class="app_btns">
       <my-button @click="showDialog">Добавить пост</my-button>
-      <my-input v-model="searchQuery" placeholder="Поиск..."></my-input>
+      <my-input v-focus v-model="searchQuery" placeholder="Поиск..."></my-input>
       <my-select v-model="selectedSort" :options="sortOptions" />
     </div>
+
     <div>
       <h1 v-if="this.isPostsLoading">Загрузка...</h1>
       <post-list
@@ -31,7 +33,7 @@
         {{ pageNumber }}
       </div>
     </div> -->
-    <div class="observer" ref="observer"></div>
+    <div class="observer" v-intersection="fetchMorePosts"></div>
   </div>
 </template>
 <script>
@@ -123,18 +125,17 @@ export default {
 
   mounted() {
     this.fetchPosts();
-    const options = {
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
-    const callback = (entries, observer) => {
-      if (entries[0].isIntersecting && this.page < this.totalPages) {
-        this.fetchMorePosts();
-      }
-      /* Content excerpted, show below */
-    };
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(this.$refs.observer);
+    // const options = {
+    //   rootMargin: "0px",
+    //   threshold: 1.0,
+    // };
+    // const callback = (entries, observer) => {
+    //   if (entries[0].isIntersecting && this.page < this.totalPages) {
+    //     this.fetchMorePosts();
+    //   }
+    // };
+    // const observer = new IntersectionObserver(callback, options);
+    // observer.observe(this.$refs.observer);
   },
 
   computed: {
