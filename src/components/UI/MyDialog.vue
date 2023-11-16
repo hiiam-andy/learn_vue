@@ -23,6 +23,7 @@ export default {
   left: 0;
   display: flex;
   background: rgba(0, 0, 0, 0.3);
+  overflow: auto !important;
 }
 .content {
   margin: auto;

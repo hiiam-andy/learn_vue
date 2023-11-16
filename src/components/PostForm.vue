@@ -2,7 +2,7 @@
   <form @submit.prevent>
     <h4>Добавление поста</h4>
     <my-input v-focus v-model.trim="post.title" placeholder="Название" />
-    <my-input v-model.trim="post.body" placeholder="Описание" />
+    <textarea v-model.trim="post.body" placeholder="Описание" />
     <my-button @click="createPost" class="btn">Добавить</my-button>
   </form>
 </template>

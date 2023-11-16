@@ -160,6 +160,13 @@ export default {
     // page() {
     //   this.fetchPosts();
     // },
+    dialogVisible() {
+      if (this.dialogVisible) {
+        document.documentElement.style.overflow = "hidden";
+        return;
+      }
+      document.documentElement.style.overflow = "auto";
+    },
   },
 };
 </script>
